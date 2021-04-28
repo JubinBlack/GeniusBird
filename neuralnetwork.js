@@ -93,7 +93,14 @@ class NeuralNetwork
                 {
                     let value = values[j];
 
-                    values[j] = value - value * (random(-10,10)*0.01); // If we get to tweak the value we just multiply it either -0.01 - 0.01, just a slight tweaking.
+                    value = value - value * (random(-10,10)*0.01); // If we get to tweak the value we just multiply it either -0.01 - 0.01, just a slight tweaking.
+                    // Next do some checking that this value doesnt go out of boundries, we like to keep it between -1,1
+                    if (value < -1){
+                        value = -1;
+                    }
+                    else if (value > 1){
+                        value = 1;
+                    }
 
                 }
             }
